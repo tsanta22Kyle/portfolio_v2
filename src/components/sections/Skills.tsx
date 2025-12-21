@@ -71,7 +71,7 @@ const skillCategories: SkillCategory[] = [
             { name: "VS Code", icon: "/images/logos/visual-studio-code-icon.png" },
             { name: "IntelliJ IDEA", icon: "/images/logos/intellij-idea-ide-icon.png" },
             { name: "Vercel", icon: "https://cdn.simpleicons.org/vercel/000000" },
-            { name: "Claude AI", icon: "https://cdn.simpleicons.org/anthropic/CA955C" },
+            { name: "Claude AI", icon: "/images/logos/claude-ai-icon.png" },
         ],
     },
     {
