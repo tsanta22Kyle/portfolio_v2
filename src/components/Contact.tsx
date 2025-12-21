@@ -1,84 +1,72 @@
-"use client";
 import React, { useState } from "react";
+import { Send, User, Mail, MessageSquare } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const defaultFormState = {
-  name: {
-    value: "",
-    error: "",
-  },
-  email: {
-    value: "",
-    error: "",
-  },
-  message: {
-    value: "",
-    error: "",
-  },
-};
 export const Contact = () => {
-  const [formData, setFormData] = useState(defaultFormState);
+  const { t } = useLanguage();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Write your submit logic here
     console.log(formData);
+    // Add logic here
   };
+
   return (
-    <form className="form" onSubmit={handleSubmit}>
-      <div className="flex flex-col md:flex-row justify-between gap-5">
-        <input
-          type="text"
-          placeholder="Your Name"
-          className="bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-200 px-2 py-2 rounded-md text-sm text-neutral-700 w-full"
-          value={formData.name.value}
-          onChange={(e) => {
-            setFormData({
-              ...formData,
-              name: {
-                value: e.target.value,
-                error: "",
-              },
-            });
-          }}
-        />
-        <input
-          type="email"
-          placeholder="Your email address"
-          className="bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-200 px-2 py-2 rounded-md text-sm text-neutral-700 w-full"
-          value={formData.email.value}
-          onChange={(e) => {
-            setFormData({
-              ...formData,
-              email: {
-                value: e.target.value,
-                error: "",
-              },
-            });
-          }}
-        />
+    <form className="w-full max-w-2xl mx-auto space-y-6" onSubmit={handleSubmit}>
+      <div className="grid md:grid-cols-2 gap-6">
+        <div className="space-y-2">
+          <label className="text-sm font-medium text-secondary ml-1">{t("contact.form.name")}</label>
+          <div className="relative group">
+            <User className="absolute left-4 top-3.5 h-5 w-5 text-tertiary group-focus-within:text-accent-primary transition-colors" />
+            <input
+              type="text"
+              placeholder={t("contact.placeholder.name")}
+              className="w-full bg-bg-elevated/50 border border-border rounded-xl py-3 pl-12 pr-4 text-primary outline-none focus:border-accent-primary focus:ring-1 focus:ring-accent-primary transition-all placeholder:text-tertiary/50"
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            />
+          </div>
+        </div>
+        <div className="space-y-2">
+          <label className="text-sm font-medium text-secondary ml-1">{t("contact.form.email")}</label>
+          <div className="relative group">
+            <Mail className="absolute left-4 top-3.5 h-5 w-5 text-tertiary group-focus-within:text-accent-primary transition-colors" />
+            <input
+              type="email"
+              placeholder={t("contact.placeholder.email")}
+              className="w-full bg-bg-elevated/50 border border-border rounded-xl py-3 pl-12 pr-4 text-primary outline-none focus:border-accent-primary focus:ring-1 focus:ring-accent-primary transition-all placeholder:text-tertiary/50"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            />
+          </div>
+        </div>
       </div>
-      <div>
-        <textarea
-          placeholder="Your Message"
-          rows={10}
-          className="bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-200 px-2 mt-4 py-2 rounded-md text-sm text-neutral-700 w-full"
-          value={formData.message.value}
-          onChange={(e) => {
-            setFormData({
-              ...formData,
-              message: {
-                value: e.target.value,
-                error: "",
-              },
-            });
-          }}
-        />
+
+      <div className="space-y-2">
+        <label className="text-sm font-medium text-secondary ml-1">{t("contact.form.message")}</label>
+        <div className="relative group">
+          <MessageSquare className="absolute left-4 top-3.5 h-5 w-5 text-tertiary group-focus-within:text-accent-primary transition-colors" />
+          <textarea
+            placeholder={t("contact.placeholder.message")}
+            rows={6}
+            className="w-full bg-bg-elevated/50 border border-border rounded-xl py-3 pl-12 pr-4 text-primary outline-none focus:border-accent-primary focus:ring-1 focus:ring-accent-primary transition-all resize-none placeholder:text-tertiary/50"
+            value={formData.message}
+            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+          />
+        </div>
       </div>
+
       <button
-        className="w-full px-2 py-2 mt-4 bg-neutral-100 rounded-md font-bold text-neutral-500"
         type="submit"
+        className="w-full bg-accent-primary hover:bg-accent-secondary text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-accent-primary/25 transition-all duration-300 flex items-center justify-center gap-2 group"
       >
-        Submit{" "}
+        <span>{t("contact.form.submit")}</span>
+        <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
       </button>
     </form>
   );

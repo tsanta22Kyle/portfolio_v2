@@ -10,6 +10,7 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       backgroundImage: {
@@ -18,8 +19,36 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
-        primary: "var(--neutral-700)",
-        secondary: "var(--neutral-500)",
+        primary: "var(--text-primary)",
+        secondary: "var(--text-secondary)",
+        tertiary: "var(--text-tertiary)",
+        accent: {
+          primary: "var(--accent-primary)",
+          secondary: "var(--accent-secondary)",
+        },
+        bg: {
+          primary: "var(--bg-primary)",
+          secondary: "var(--bg-secondary)",
+          tertiary: "var(--bg-tertiary)",
+          elevated: "var(--bg-elevated)",
+        },
+        border: {
+          subtle: "var(--border-subtle)",
+          DEFAULT: "var(--border-default)",
+          strong: "var(--border-strong)",
+        },
+      },
+      animation: {
+        "fade-in": "fadeIn 0.5s ease-in-out",
+        "slide-up": "slideUp 0.6s ease-out",
+        "slide-in-left": "slideInLeft 0.5s ease-out",
+      },
+      backdropBlur: {
+        xs: "2px",
+      },
+      boxShadow: {
+        'glow-sm': 'var(--glow-sm)',
+        'glow-md': 'var(--glow-md)',
       },
     },
   },
@@ -39,3 +68,4 @@ function addVariablesForColors({ addBase, theme }: any) {
 }
 
 export default config;
+

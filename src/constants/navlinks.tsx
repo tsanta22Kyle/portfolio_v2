@@ -1,35 +1,69 @@
 import {
-  IconArticle,
-  IconBolt,
-  IconBriefcase2,
-  IconMail,
-  IconMessage2,
-} from "@tabler/icons-react";
+  Home,
+  Briefcase,
+  FolderHeart,
+  Code,
+  History,
+  Sparkles,
+  User,
+  Mail,
+  Github,
+  Linkedin,
+  Twitter,
+} from "lucide-react";
 
 export const navlinks = [
   {
     href: "/",
-    label: "Home",
-    icon: IconBolt,
-  },
-  {
-    href: "/about",
-    label: "About",
-    icon: IconMessage2,
+    label: "nav.home",
+    icon: Home,
   },
   {
     href: "/projects",
-    label: "Projects",
-    icon: IconBriefcase2,
+    label: "nav.personal",
+    icon: FolderHeart,
   },
   {
-    href: "/blog",
-    label: "Articles",
-    icon: IconArticle,
+    href: "/skills",
+    label: "nav.skills",
+    icon: Code,
+  },
+  {
+    href: "/experience",
+    label: "nav.experience",
+    icon: History,
+  },
+  {
+    href: "/activities",
+    label: "nav.activities",
+    icon: Sparkles,
   },
   {
     href: "/contact",
-    label: "Contact",
-    icon: IconMail,
+    label: "nav.contact",
+    icon: Mail,
+  },
+];
+
+export const socials = [
+  {
+    href: "https://github.com/tsanta22kyle",
+    label: "GitHub",
+    icon: Github,
+  },
+  {
+    href: "https://www.linkedin.com/in/tsantaniaina-kyle-rakotoarison-a2b511298/",
+    label: "LinkedIn",
+    icon: Linkedin,
+  },
+  {
+    href: "https://x.com/Tsanta22kyle",
+    label: "Twitter",
+    icon: Twitter,
+  },
+  {
+    href: "mailto:kyle.rakotoarison@gmail.com",
+    label: "Email",
+    icon: Mail,
   },
 ];

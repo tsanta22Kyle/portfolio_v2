@@ -1,19 +1,22 @@
 import { Sidebar } from "@/components/Sidebar";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { twMerge } from "tailwind-merge";
+import { Bricolage_Grotesque } from "next/font/google";
 import { Footer } from "@/components/Footer";
+import { ThemeProvider } from "@/contexts/ThemeContext";
+import { LanguageProvider } from "@/contexts/LanguageContext";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { LanguageToggle } from "@/components/LanguageToggle";
 
-const inter = Inter({
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
-  title: "Tsanta Kyle - Développeur",
+  title: "Rakotoarison Tsantaniaina Kyle - Fullstack Developer & Future Entrepreneur",
   description:
-    "hi , i'm Kyle",
+    "Student in Computer Science (L3) at HEI Madagascar. Fullstack Developer passionate about building scalable web apps, entrepreneurship, and reaching absolute mastery.",
 };
 
 export default function RootLayout({
@@ -22,21 +25,33 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr">
-      <body
-        className={twMerge(
-          inter.className,
-          "flex antialiased h-screen overflow-hidden bg-[#131415]"
-        )}
-      >
-        <Sidebar />
-        <div className="lg:pl-10 lg:pt-10 bg-gray-[#131415] flex-1 overflow-y-auto">
-          <div className="flex-1 w-[95%] bg-[#1a1b1e] h-[80dvh]  lg:rounded-xl border border-transparent  overflow-y-auto">
-            {children}
-            <Footer />
-          </div>
-        </div>
+    <html lang="fr" suppressHydrationWarning>
+      <body className={bricolage.className}>
+        <ThemeProvider>
+          <LanguageProvider>
+            <div className="flex h-screen overflow-hidden">
+              <Sidebar />
+              <main className="flex-1 relative bg-bg-primary p-6 lg:p-10 h-screen overflow-hidden">
+                {/* Floating toggles with accent color - fixed position */}
+                <div className="fixed top-12 right-10 z-50 flex items-center gap-3">
+                  <LanguageToggle />
+                  <ThemeToggle />
+                </div>
+
+                {/* Main content wrapper - no scroll in main, scroll is inside */}
+                <div className="h-full max-w-[98%] mx-auto bg-bg-secondary rounded-2xl  overflow-hidden">
+                  <div className="h-full overflow-y-auto">
+                    {children}
+                    <Footer />
+                  </div>
+                </div>
+              </main>
+            </div>
+          </LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
 }
+
+

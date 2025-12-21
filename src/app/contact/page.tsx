@@ -1,28 +1,37 @@
+"use client";
 import { Contact } from "@/components/Contact";
-import { Container } from "@/components/Container";
-import { Heading } from "@/components/Heading";
-import { Highlight } from "@/components/Highlight";
-import { Paragraph } from "@/components/Paragraph";
-import { Products } from "@/components/Products";
 import { Metadata } from "next";
-import Image from "next/image";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const metadata: Metadata = {
-  title: "Contact | John Doe",
-  description:
-    "John Doe is a developer, writer and speaker. He is a digital nomad and travels around the world while working remotely.",
+  title: "Contact | Rakotoarison Tsantaniaina Kyle",
+  description: "Get in touch for projects or collaborations.",
 };
 
-export default function Projects() {
+
+export default function ContactPage() {
+  const { t } = useLanguage();
+
   return (
-    <Container>
-      <span className="text-4xl">✉️</span>
-      <Heading className="font-black mb-2">Contact Me</Heading>
-      <Paragraph className="mb-10 max-w-xl">
-        Reach out to me over email or fill up this contact form. I will get back
-        to you ASAP - I promise.{" "}
-      </Paragraph>
-      <Contact />
-    </Container>
+    <main className="min-h-screen pt-32 pb-20 px-6 container mx-auto flex flex-col items-center">
+      <div className="text-center space-y-4 mb-16">
+        <h1 className="text-4xl lg:text-5xl font-bold text-primary">
+          {t("contact.title")}
+        </h1>
+        <p className="text-secondary max-w-xl mx-auto text-lg">
+          {t("contact.description")}
+        </p>
+      </div>
+
+      <div className="w-full max-w-3xl glass p-8 md:p-12 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden">
+        {/* Background Glows */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-accent-primary/10 blur-3xl rounded-full -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent-secondary/10 blur-3xl rounded-full translate-y-1/2 -translate-x-1/2" />
+
+        <div className="relative z-10">
+          <Contact />
+        </div>
+      </div>
+    </main>
   );
 }

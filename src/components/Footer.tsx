@@ -1,11 +1,21 @@
 "use client";
-import React from "react";
 
-export const Footer = () => {
+import { useLanguage } from "@/contexts/LanguageContext";
+
+export function Footer() {
+  const { t } = useLanguage();
+  const currentYear = new Date().getFullYear();
+
   return (
-    <div className="p-4 text-center justify-center text-xs text-neutral-500 border-t border-neutral-100">
-      <span className="font-semibold">{new Date().getFullYear()} </span>
-      &#8212; Tsanta22kyle 
-    </div>
+    <footer className="border-t border-border-subtle mt-20">
+      <div className="container mx-auto px-6 py-8">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-tertiary">
+          <p>
+            © {currentYear} {t("hero.name")}. {t("footer.rights")}.
+          </p>
+          <p>{t("footer.built")}</p>
+        </div>
+      </div>
+    </footer>
   );
-};
+}
