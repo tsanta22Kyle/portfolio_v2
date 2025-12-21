@@ -24,7 +24,7 @@ export const Sidebar = () => {
             animate={{ x: 0 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
             exit={{ x: -300 }}
-            className="fixed lg:relative h-screen w-[280px] z-[100] bg-black/40 backdrop-blur-md border-r border-border-subtle flex flex-col pt-6 lg:pt-10"
+            className="fixed lg:relative h-screen w-[280px] z-[100] dark:bg-bg-secondary/80 backdrop-blur-md border-r border-border-subtle flex flex-col pt-6 lg:pt-10"
           >
             {/* Header with avatar - no scroll */}
             <div className="px-6 pb-6 flex-shrink-0">

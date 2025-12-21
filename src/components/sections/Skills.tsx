@@ -22,7 +22,7 @@ interface SkillCategory {
 const skillCategories: SkillCategory[] = [
     {
         id: "frontend",
-        title: "Frontend Development",
+        title: "skills.cat.frontend",
         icon: Layout,
         gradient: "from-accent-primary/20 to-accent-secondary/20",
         technologies: [
@@ -38,7 +38,7 @@ const skillCategories: SkillCategory[] = [
     },
     {
         id: "backend",
-        title: "Backend & Tools",
+        title: "skills.cat.backend",
         icon: Server,
         gradient: "from-accent-secondary/20 to-accent-primary/10",
         technologies: [
@@ -53,7 +53,7 @@ const skillCategories: SkillCategory[] = [
     },
     {
         id: "mobile",
-        title: "Mobile Development",
+        title: "skills.cat.mobile",
         icon: Smartphone,
         gradient: "from-accent-primary/10 to-accent-secondary/10",
         technologies: [
@@ -63,7 +63,7 @@ const skillCategories: SkillCategory[] = [
     },
     {
         id: "tools",
-        title: "Design & Dev Tools",
+        title: "skills.cat.tools",
         icon: Wrench,
         gradient: "from-accent-secondary/10 to-accent-primary/20",
         technologies: [
@@ -76,18 +76,18 @@ const skillCategories: SkillCategory[] = [
     },
     {
         id: "softskills",
-        title: "Qualités Humaines",
+        title: "skills.cat.softskills",
         icon: Heart,
         gradient: "from-emerald-500/10 to-blue-500/10",
         technologies: [
-            { name: "Intégrité", icon: "https://api.iconify.design/lucide:shield-check.svg?color=%2310b981" },
+            { name: "skills.soft.integrity", icon: "https://api.iconify.design/lucide:shield-check.svg?color=%2310b981" },
             // { name: "Leadership", icon: "https://api.iconify.design/lucide:crown.svg?color=%23f59e0b" },
-            { name: "Esprit d'équipe", icon: "https://api.iconify.design/lucide:users.svg?color=%233b82f6" },
-            { name: "Initiative", icon: "https://api.iconify.design/lucide:zap.svg?color=%23eab308" },
-            { name: "Persévérance", icon: "https://api.iconify.design/lucide:mountain-snow.svg?color=%236366f1" },
-            { name: "Curiosité", icon: "https://api.iconify.design/lucide:telescope.svg?color=%238b5cf6" },
-            { name: "Adaptabilité", icon: "https://api.iconify.design/lucide:refresh-cw.svg?color=%23ec4899" },
-            { name: "Polyvalence", icon: "https://api.iconify.design/lucide:layers.svg?color=%2314b8a6" },
+            { name: "skills.soft.teamwork", icon: "https://api.iconify.design/lucide:users.svg?color=%233b82f6" },
+            { name: "skills.soft.initiative", icon: "https://api.iconify.design/lucide:zap.svg?color=%23eab308" },
+            { name: "skills.soft.perseverance", icon: "https://api.iconify.design/lucide:mountain-snow.svg?color=%236366f1" },
+            { name: "skills.soft.curiosity", icon: "https://api.iconify.design/lucide:telescope.svg?color=%238b5cf6" },
+            { name: "skills.soft.adaptability", icon: "https://api.iconify.design/lucide:refresh-cw.svg?color=%23ec4899" },
+            { name: "skills.soft.versatility", icon: "https://api.iconify.design/lucide:layers.svg?color=%2314b8a6" },
         ],
     },
 ];
@@ -193,7 +193,7 @@ export default function Skills() {
                                                 <category.icon className="w-8 h-8 text-accent-primary" />
                                             </div>
                                             <h3 className="text-2xl font-bold text-primary text-center">
-                                                {category.title}
+                                                {t(category.title as any)}
                                             </h3>
                                         </div>
 
@@ -215,7 +215,7 @@ export default function Skills() {
                                                         unoptimized // Ensure external SVGs load cleanly
                                                     />
                                                     <span className="text-[10px] text-secondary text-center font-medium leading-tight">
-                                                        {tech.name}
+                                                        {t(tech.name as any)}
                                                     </span>
                                                 </div>
                                             ))}
@@ -229,7 +229,7 @@ export default function Skills() {
                                                 exit={{ opacity: 0 }}
                                             >
                                                 <motion.div
-                                                    className="flex flex-col items-center gap-4 p-4 rounded-xl bg-black/40 border border-white/10 backdrop-blur-md"
+                                                    className="flex flex-col items-center gap-4 p-4 rounded-xl  border border-white/10 backdrop-blur-md"
                                                     animate={{ cy: [0, 50, 0], y: [0, 20, 0] }}
                                                     transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
                                                 >
@@ -279,7 +279,7 @@ export default function Skills() {
                                                 <category.icon className="w-5 h-5 text-accent-primary" />
                                             </div>
                                             <h3 className="text-xl font-bold text-primary text-center">
-                                                {category.title}
+                                                {t(category.title as any)}
                                             </h3>
                                         </div>
 
@@ -301,7 +301,7 @@ export default function Skills() {
                                                         unoptimized
                                                     />
                                                     <span className="text-[9px] text-secondary text-center font-medium leading-tight">
-                                                        {tech.name}
+                                                        {t(tech.name as any)}
                                                     </span>
                                                 </div>
                                             ))}
@@ -311,8 +311,9 @@ export default function Skills() {
                             ))}
                         </AnimatePresence>
                     </motion.div>
-                </div>
-            )}
+                </div >
+            )
+            }
 
             {/* Certifications Section */}
             {/* <div className="space-y-8">
@@ -349,6 +350,6 @@ export default function Skills() {
                     ))}
                 </div>
             </div> */}
-        </div>
+        </div >
     );
 }

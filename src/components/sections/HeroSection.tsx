@@ -96,13 +96,14 @@ export function HeroSection() {
                         <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/20 to-accent-secondary/20 
                           rounded-2xl blur-xl opacity-50 group-hover:opacity-70 transition-opacity" />
                         <div className="relative rounded-2xl overflow-hidden border border-accent-primary/20 
-                          shadow-lg hover:shadow-glow-md transition-all duration-300">
+                          shadow-lg hover:shadow-glow-md transition-all duration-300 p-10">
                             <Image
-                                src="/images/profile_image.png"
+                                src="/images/profile.png"
                                 alt="Profile"
-                                width={200}
-                                height={200}
-                                className="w-full h-auto object-cover"
+                                width={50}
+                                height={50}
+                                className="w-full h-auto object-cover rounded-md"
+                                unoptimized
                                 priority
                             />
                             {/* <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent 

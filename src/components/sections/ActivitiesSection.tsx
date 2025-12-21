@@ -12,20 +12,20 @@ interface Activity {
 
 const activities: Activity[] = [
     {
-        title: "Sport & Discipline",
-        description: "Pratique de la musculation (Street Workout/Sans matériel) et du Football pour le dépassement de soi.",
-        achievement: "Discipline de fer",
+        title: "activities.sport.title",
+        description: "activities.sport.desc",
+        achievement: "activities.sport.achievement",
         icon: Award,
     },
     {
-        title: "Culture Geek",
-        description: "Passionné d'Animés et Mangas. Exploration d'univers narratifs complexes et inspirants.",
+        title: "activities.geek.title",
+        description: "activities.geek.desc",
         icon: Users,
     },
     {
-        title: "Gaming Compétitif",
-        description: "Jeux multijoueurs (FIFA, Mario Kart) et jeux de société. Esprit de compétition et stratégie.",
-        achievement: "Tryharder",
+        title: "activities.gaming.title",
+        description: "activities.gaming.desc",
+        achievement: "activities.gaming.achievement",
         icon: Trophy,
     },
 ];
@@ -56,14 +56,14 @@ export function ActivitiesSection() {
                             </div>
                             <div className="space-y-2">
                                 <h3 className="text-lg font-semibold text-primary">
-                                    {activity.title}
+                                    {t(activity.title as any)}
                                 </h3>
                                 <p className="text-sm text-secondary leading-relaxed">
-                                    {activity.description}
+                                    {t(activity.description as any)}
                                 </p>
                                 {activity.achievement && (
                                     <p className="text-sm font-medium text-accent-primary pt-1">
-                                        {activity.achievement}
+                                        {t(activity.achievement as any)}
                                     </p>
                                 )}
                             </div>

@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { Trophy, Code, ExternalLink, ShieldCheck } from "lucide-react";
+import { Trophy, Code, ExternalLink, ShieldCheck, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 // --- 3D NODE COMPONENT (Visual Only) ---
@@ -149,7 +149,7 @@ const DetailsCard = ({
 const GridFloor = () => {
     return (
         <div
-            className="absolute inset-0 rounded-xl"
+            className="absolute inset-0 left-[175px] md:left-0 w-[600px] md:w-full rounded-xl"
             style={{
                 transform: "translateZ(-20px)",
                 backgroundImage: `
@@ -182,7 +182,28 @@ export const CertificationsSection = () => {
                 <div className="h-1.5 w-24 bg-primary mx-auto mt-6 rounded-full opacity-80" />
             </div>
 
-            <div className="relative w-full max-w-5xl flex items-center justify-center -mt-10 perspective-[2000px]">
+            <div className="relative w-full max-w-5xl flex items-center justify-center  -mt-10 perspective-[2000px] overflow-x-auto md:overflow-visible px-4 md:px-0" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                <style jsx>{`
+                    div::-webkit-scrollbar {
+                        display: none;
+                    }
+                `}</style>
+
+
+
+                {/* Right Scroll Indicator (Mobile) */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1, x: [0, 5, 0] }}
+                    transition={{
+                        opacity: { delay: 1 },
+                        x: { repeat: Infinity, duration: 2, ease: "easeInOut" }
+                    }}
+                    className="md:hidden absolute p-2 right-0 top-1/2 -translate-y-1/2 z-50 bg-bg-elevated/80 backdrop-blur-sm border border-border rounded-full p-2 shadow-lg flex gap-4 item-center justify-center"
+                >
+                    <p className="">scroll</p>
+                    <ChevronRight className="w-5 h-5 text-accent-primary" />
+                </motion.div>
 
                 {/* --- 2D OVERLAY LAYER (Absolute positioning on top of the 3D Stage) --- */}
                 {/* We place this BEFORE the 3D stage in DOM order but use absolute + Z-index to float it. 
@@ -192,8 +213,8 @@ export const CertificationsSection = () => {
                     JS: Left 50, Top 250. Visually Bottom-Center-Left.
                     Hackathon: Left 350, Top 150. Visually Right-Center.
                 */}
-                <div className="absolute inset-0 pointer-events-none z-50 flex items-center justify-center">
-                    <div className="relative w-[500px] h-[500px]"> {/* Visual reference frame matching stage size */}
+                <div className="absolute  inset-0 pointer-events-none z-50 flex items-center justify-center">
+                    <div className="relative w-[500px] h-[500px] min-w-[500px]"> {/* Visual reference frame matching stage size */}
                         <AnimatePresence>
                             {hoveredItem === 'java' && (
                                 <DetailsCard
@@ -203,7 +224,7 @@ export const CertificationsSection = () => {
                                     subtitle="HackerRank • Intermediate"
                                     description="Mastery of Object-Oriented Programming, complex data structures, and algorithmic problem solving."
                                     // Custom visual position: Top Leftish
-                                    customPosition="top-[-80px] -left-[180px]"
+                                    customPosition="md:top-[-20px] top-[220px] left-[20px] md:-left-[180px]"
                                 />
                             )}
                             {hoveredItem === 'js' && (
@@ -214,7 +235,7 @@ export const CertificationsSection = () => {
                                     subtitle="HackerRank • Basic"
                                     description="Proficiency in ES6+ syntax, asynchronous programming patterns, and functional development."
                                     // Custom visual position: Bottom Leftish
-                                    customPosition="bottom-[-100px] -left-[160px]"
+                                    customPosition="bottom-[-30px] left-[100px] md:-left-[160px]"
                                 />
                             )}
                             {hoveredItem === 'hackathon' && (
@@ -225,7 +246,7 @@ export const CertificationsSection = () => {
                                     subtitle="Hackathon • Runner-Up"
                                     description="Lead Frontend for 'Eco-Loop', a circular economy platform awarded for best UI/UX and sustainability impact."
                                     // Custom visual position: Center Right
-                                    customPosition="top-[100px] -right-[220px]"
+                                    customPosition="top-[150px] right-[-220px] md:-right-[220px]"
                                 />
                             )}
                         </AnimatePresence>
@@ -235,7 +256,7 @@ export const CertificationsSection = () => {
 
                 {/* --- 3D STAGE --- */}
                 <div
-                    className="relative w-[500px] h-[500px]"
+                    className="relative w-[500px] h-[500px] min-w-[500px] mx-auto"
                     style={{
                         transformStyle: "preserve-3d",
                         transform: "rotateX(55deg) rotateZ(-45deg)",
@@ -244,7 +265,7 @@ export const CertificationsSection = () => {
                     <GridFloor />
 
                     {/* Java (Top-Left on Grid) */}
-                    <div className="absolute top-[50px] left-[50px] z-10">
+                    <div className="absolute top-[50px] left-[225px] md:left-[50px] z-10">
                         <AchievementNode
                             type="java"
                             icon={Code}
@@ -255,7 +276,7 @@ export const CertificationsSection = () => {
                     </div>
 
                     {/* JS (Bottom-Left on Grid) */}
-                    <div className="absolute top-[250px] left-[50px] z-20">
+                    <div className="absolute top-[250px] left-[225px] md:left-[50px] z-20">
                         <AchievementNode
                             type="js"
                             icon={Code}
@@ -266,7 +287,7 @@ export const CertificationsSection = () => {
                     </div>
 
                     {/* Hackathon (Right on Grid) */}
-                    <div className="absolute top-[150px] left-[350px] z-30">
+                    <div className="absolute top-[150px] left-[525px] md:left-[350px] z-30">
                         <AchievementNode
                             type="hackathon"
                             icon={Trophy}
