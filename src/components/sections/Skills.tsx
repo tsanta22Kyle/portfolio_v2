@@ -155,22 +155,28 @@ export default function Skills() {
             {stack.length > 0 && (
                 <div className="relative h-[450px] flex items-center justify-center">
                     <AnimatePresence>
-                        {stack.map((category, index) => {
-                            const isTop = index === stack.length - 1;
-                            const offset = (stack.length - 1 - index) * 8;
+                        {stack.slice(-3).map((category, index, array) => {
+                            // Calculate relative properties based on the visible slice
+                            const isTop = index === array.length - 1;
+                            const distFromTop = array.length - 1 - index;
+
+                            // Visual properties based on distance from top
+                            const offset = distFromTop * 12; // Increased spacing slightly
+                            const scale = 1 - distFromTop * 0.05;
+                            const opacity = 1 - distFromTop * 0.2;
 
                             return (
                                 <motion.div
                                     key={category.id}
-                                    drag={isTop ? "y" : false} // Lock x axis to avoid mess? Or keep freestyle? User said "drag down". Locking x might be cleaner. Let's keep free but constraints.
-                                    dragConstraints={{ top: 0, bottom: 0 }} // We want spring back if not dropped
+                                    drag={isTop ? "y" : false}
+                                    dragConstraints={{ top: 0, bottom: 0 }}
                                     dragElastic={0.7}
                                     onDragEnd={(e, info) => handleDragEnd(e, info, category)}
-                                    initial={{ scale: 0.8, opacity: 0 }}
+                                    initial={{ scale: 0.9, opacity: 0, y: 20 }}
                                     animate={{
-                                        scale: isTop ? 1 : 0.95 - index * 0.02,
+                                        scale: scale,
                                         y: -offset,
-                                        opacity: isTop ? 1 : 0.6,
+                                        opacity: isTop ? 1 : opacity,
                                         zIndex: index,
                                     }}
                                     exit={{
@@ -178,8 +184,11 @@ export default function Skills() {
                                         opacity: 0,
                                         transition: { duration: 0.3 },
                                     }}
-                                    className={`absolute w-full max-w-md glass rounded-2xl p-8 space-y-6 border border-border-default
-                    ${isTop ? "cursor-grab active:cursor-grabbing shadow-2xl ring-1 ring-accent-primary/20" : "pointer-events-none"}
+                                    className={`absolute w-full max-w-md rounded-2xl p-8 pb-24 space-y-6 border border-border-default transition-all duration-300
+                    ${isTop
+                                            ? "glass-strong backdrop-blur-[50px] bg-bg-elevated/50 cursor-grab active:cursor-grabbing shadow-2xl ring-1 ring-accent-primary/20 z-50"
+                                            : "glass pointer-events-none blur-[4px] opacity-60 scale-95 grayscale-[0.8]"
+                                        }
                     `}
                                     whileHover={isTop ? { scale: 1.02 } : {}}
                                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
@@ -223,23 +232,21 @@ export default function Skills() {
 
                                         {isTop && (
                                             <motion.div
-                                                className="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none bg-black/10 backdrop-blur-[1px] rounded-2xl"
-                                                initial={{ opacity: 0 }}
-                                                animate={{ opacity: 1 }}
+                                                className="absolute -bottom-6 left-0 right-0 flex justify-center z-20 pointer-events-none"
+                                                initial={{ opacity: 0, y: 10 }}
+                                                animate={{ opacity: 1, y: 0 }}
                                                 exit={{ opacity: 0 }}
                                             >
                                                 <motion.div
-                                                    className="flex flex-col items-center gap-4 p-4 rounded-xl  border border-white/10 backdrop-blur-md"
-                                                    animate={{ cy: [0, 50, 0], y: [0, 20, 0] }}
+                                                    className="bg-bg-elevated/90 backdrop-blur-md text-primary px-4 py-2 rounded-full flex items-center gap-3 shadow-lg border border-primary/10"
+                                                    animate={{ y: [0, 5, 0] }}
                                                     transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
                                                 >
-                                                    <Hand className="w-12 h-12 text-white" />
-                                                    <div className="flex flex-col items-center">
-                                                        <span className="text-white font-bold uppercase tracking-widest text-sm">
-                                                            {t("skills.drag")}
-                                                        </span>
-                                                        <ChevronsDown className="w-6 h-6 text-accent-primary mt-1" />
-                                                    </div>
+                                                    <Hand className="w-4 h-4 text-accent-primary" />
+                                                    <span className="text-xs font-semibold uppercase tracking-wider">
+                                                        {t("skills.drag")}
+                                                    </span>
+                                                    <ChevronsDown className="w-4 h-4 text-accent-primary animate-bounce" />
                                                 </motion.div>
                                             </motion.div>
                                         )}

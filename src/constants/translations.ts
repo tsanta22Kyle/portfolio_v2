@@ -142,7 +142,7 @@ export const translations = {
         "contact.placeholder.message": "Tell me about your project...",
 
         // Skills Interactions
-        "skills.drag": "Drag down",
+        "skills.drag": "Hold & Drag",
         "skills.explore": "Explore my skills",
     },
 
@@ -293,7 +293,7 @@ export const translations = {
             "Décrivez votre projet...",
 
         // Skills Interactions
-        "skills.drag": "Glissez vers le bas",
+        "skills.drag": "Maintenez & Glissez",
         "skills.explore": "Explorez mes compétences",
     },
 };
