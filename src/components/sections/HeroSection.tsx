@@ -48,7 +48,7 @@ export function HeroSection() {
                         className="flex flex-wrap gap-4 pt-4"
                     >
                         <a
-                            href="/resume.pdf"
+                            href="/cv/RAKOTOARISON-Tsantaniaina-Kyle-cv.pdf"
                             download
                             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg 
                        bg-accent-primary text-white font-medium hover:bg-accent-secondary 
