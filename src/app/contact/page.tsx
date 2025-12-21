@@ -1,12 +1,6 @@
 "use client";
 import { Contact } from "@/components/Contact";
-import { Metadata } from "next";
 import { useLanguage } from "@/contexts/LanguageContext";
-
-export const metadata: Metadata = {
-  title: "Contact | Rakotoarison Tsantaniaina Kyle",
-  description: "Get in touch for projects or collaborations.",
-};
 
 
 export default function ContactPage() {
