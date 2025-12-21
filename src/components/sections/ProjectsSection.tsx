@@ -19,7 +19,7 @@ export function ProjectsSection() {
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-8">
-                    {projects.map((project, index) => (
+                    {projects.map((project) => (
                         <Link
                             href={`/projects/${project.id}`}
                             key={project.id}
@@ -67,7 +67,7 @@ export function ProjectsSection() {
                                         </div>
 
                                         <p className="text-xs text-accent-primary font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
-                                            Voir les détails du projet
+                                            {t("projects.view")}
                                         </p>
                                     </div>
                                 </div>

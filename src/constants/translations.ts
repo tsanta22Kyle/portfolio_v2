@@ -79,6 +79,7 @@ export const translations = {
         "project.stack": "Tech Stack",
         "project.viewSite": "View Live Site",
         "project.viewCode": "View Code",
+        "project.viewMobile": "Mobile App",
 
         // Contact Page
         "contact.description": "Have a project in mind or just want to chat? Feel free to send me a message.",

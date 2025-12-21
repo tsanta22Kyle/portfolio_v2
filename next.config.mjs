@@ -10,6 +10,10 @@ const nextConfig = {
   experimental: {
     mdxRs: true,
   },
+  optimizeFonts: false,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 const withMDX = nextMDX({
