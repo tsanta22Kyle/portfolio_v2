@@ -83,7 +83,7 @@ export const Navigation = ({
   return (
     <div className="space-y-1">
       <p className="text-xs font-semibold text-tertiary uppercase tracking-wider px-3 mb-3">
-        Creations
+        portfolio
       </p>
       {navlinks.map((link: Navlink) => (
         <Link
