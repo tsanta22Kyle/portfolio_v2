@@ -186,7 +186,7 @@ export default function Skills() {
                                     }}
                                     className={`absolute w-full max-w-md rounded-2xl p-8 pb-24 space-y-6 border border-border-default transition-all duration-300
                     ${isTop
-                                            ? "glass-strong backdrop-blur-[50px] bg-bg-elevated/50 cursor-grab active:cursor-grabbing shadow-2xl ring-1 ring-accent-primary/20 z-50"
+                                            ? "glass-liquid cursor-grab active:cursor-grabbing shadow-2xl z-50"
                                             : "glass pointer-events-none blur-[4px] opacity-60 scale-95 grayscale-[0.8]"
                                         }
                     `}
@@ -232,7 +232,7 @@ export default function Skills() {
 
                                         {isTop && (
                                             <motion.div
-                                                className="absolute -bottom-6 left-0 right-0 flex justify-center z-20 pointer-events-none"
+                                                className="absolute -bottom-7 left-0 right-0 flex justify-center z-20 pointer-events-none"
                                                 initial={{ opacity: 0, y: 10 }}
                                                 animate={{ opacity: 1, y: 0 }}
                                                 exit={{ opacity: 0 }}
