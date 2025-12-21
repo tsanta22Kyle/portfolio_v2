@@ -43,7 +43,7 @@ const skillCategories: SkillCategory[] = [
         gradient: "from-accent-secondary/20 to-accent-primary/10",
         technologies: [
             { name: "Node.js", icon: "https://cdn.simpleicons.org/nodedotjs/339933" },
-            { name: "Java", icon: "https://cdn.simpleicons.org/openjdk/FFFFFF?viewbox=auto" },
+            { name: "Java", icon: "/images/logos/java-programming-language-icon.png" },
             { name: "Spring Boot", icon: "https://cdn.simpleicons.org/springboot/6DB33F" },
             { name: "PostgreSQL", icon: "https://cdn.simpleicons.org/postgresql/4169E1" },
             { name: "Docker", icon: "https://cdn.simpleicons.org/docker/2496ED" },
