@@ -1,6 +1,5 @@
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
-import { ExperienceSection } from "@/components/sections/ExperienceSection";
 import { CertificationsSection } from "@/components/sections/CertificationsSection";
 import { ActivitiesSection } from "@/components/sections/ActivitiesSection";
 import { FinalCTA } from "@/components/sections/FinalCTA";
@@ -13,7 +12,6 @@ export default function Home() {
       <Skills />
       <CertificationsSection />
       <ProjectsSection />
-      <ExperienceSection />
       <ActivitiesSection />
       <FinalCTA />
     </div>

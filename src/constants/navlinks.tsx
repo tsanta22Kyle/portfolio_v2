@@ -29,11 +29,6 @@ export const navlinks = [
     icon: Code,
   },
   {
-    href: "/experience",
-    label: "nav.experience",
-    icon: History,
-  },
-  {
     href: "/activities",
     label: "nav.activities",
     icon: Sparkles,
