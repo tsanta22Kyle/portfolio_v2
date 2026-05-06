@@ -100,8 +100,8 @@ export function HeroSection() {
                             <Image
                                 src="/images/profile.png"
                                 alt="Profile"
-                                width={50}
-                                height={50}
+                                width={40}
+                                height={40}
                                 className="w-full h-auto object-cover rounded-md"
                                 unoptimized
                                 priority

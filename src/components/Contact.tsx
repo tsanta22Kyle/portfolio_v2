@@ -26,7 +26,7 @@ export const Contact = () => {
             <input
               type="text"
               placeholder={t("contact.placeholder.name")}
-              className="w-full bg-bg-elevated/50 border border-border rounded-xl py-3 pl-12 pr-4 text-primary outline-none focus:border-accent-primary focus:ring-1 focus:ring-accent-primary transition-all placeholder:text-tertiary/50"
+              className="w-full bg-black border border-border rounded-xl py-3 pl-12 pr-4 text-primary outline-none focus:border-accent-primary focus:ring-1 focus:ring-accent-primary transition-all placeholder:text-tertiary/50"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             />
@@ -39,7 +39,7 @@ export const Contact = () => {
             <input
               type="email"
               placeholder={t("contact.placeholder.email")}
-              className="w-full bg-bg-elevated/50 border border-border rounded-xl py-3 pl-12 pr-4 text-primary outline-none focus:border-accent-primary focus:ring-1 focus:ring-accent-primary transition-all placeholder:text-tertiary/50"
+              className="w-full bg-black border border-border rounded-xl py-3 pl-12 pr-4 text-primary outline-none focus:border-accent-primary focus:ring-1 focus:ring-accent-primary transition-all placeholder:text-tertiary/50"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             />
@@ -54,7 +54,7 @@ export const Contact = () => {
           <textarea
             placeholder={t("contact.placeholder.message")}
             rows={6}
-            className="w-full bg-bg-elevated/50 border border-border rounded-xl py-3 pl-12 pr-4 text-primary outline-none focus:border-accent-primary focus:ring-1 focus:ring-accent-primary transition-all resize-none placeholder:text-tertiary/50"
+            className="w-full bg-black border border-border rounded-xl py-3 pl-12 pr-4 text-primary outline-none focus:border-accent-primary focus:ring-1 focus:ring-accent-primary transition-all resize-none placeholder:text-tertiary/50"
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
           />

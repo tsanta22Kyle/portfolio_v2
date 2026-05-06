@@ -3,7 +3,7 @@ export const translations = {
         // Navigation
         "nav.home": "Home",
         "nav.work": "Professional Projects",
-        "nav.personal": "Personal Projects",
+        "nav.personal": "Projects",
         "nav.certifications": "Certifications",
         "nav.skills": "Skills",
         "nav.experience": "Experience",
@@ -150,7 +150,7 @@ export const translations = {
         // Navigation
         "nav.home": "Accueil",
         "nav.work": "Projets Professionnels",
-        "nav.personal": "Projets Personnels",
+        "nav.personal": "Projets",
         "nav.certifications": "Certifications",
         "nav.skills": "Compétences",
         "nav.experience": "Expérience",
